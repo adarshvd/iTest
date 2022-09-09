@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+<!--..........................................................-->
+{% block head %}
+
+<h1 style="color:darkred; font-family:cursive;  font-size:80px">i-TEST</h1> by <h4 style="color: #212F3D; font-family:carrier; font-size:12px">Adarsh V D</h4></h2>
+{% endblock %}
+<!--..........................................................-->
+{% block body %}
+<hr style="color:black">
+<br>
+
+<!--prints scoreboard-->
+<h4 style="color: #17202A ; font-size:15px">Our TOP Achievers</h4>
+<table style="font-size:32px">
+    <tr>
+        <th>Rank...</th>
+        <th>Name..................</th>
+        <th>Date..................</th>
+        <th>Score</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.date_created.strftime("%d-%m-%y") }}</td>
+        <td>{{ i.score }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<hr>
+<div class="form">
+    <form style="font-size:35px" action="/game" method="POST">
+        Name:
+        <input type="text" name="name" id="name" width="60" height="200px">
+        <input style="font-size:40px" type="submit" value="START GAME" >
+    </form>
+</div>
+<hr>
+
+<h6>How to play</h6>
+<ol style=" font-size: 10px; text-align:left;">
+  <li>Enter your name and click on start game</li>
+  <li>Out of four boxes one is slighlty different in color. Identify and Click on that box.</li>
+  <li>Correct Answer -> +1 score</li>
+  <li>Incorrect Answer -> -5 score, -1 life</li>
+  <br>
+  <li>There are three kinds of lifelines/powerups:</li>
+  <ol>
+      <li>SKIP ( 3 nos ) : skips the  current question without affecting your score or life.</li>
+      <li>50:50 ( 2 nos ) : eliminates 2 wrong options.</li>
+      <li>BONUS ( only one ): It is available once you reach 21 points. On activating this and correctly answering you will get bonus score as mentioned</li>
+  </ol>
+  <li>Bonus increases with your score. Hence, you will get more bonus if u activate at higher score</li>
+  <li>Bonus cannot be activated with other lifelines</li>
+  <br>
+  <li>USE POWERUPS STRATEGICALLY TO SCORE MORE.... ENJOY</li>
+</ol>
+
+<hr>
+
+{% endblock %}
+<!--..........................................................-->

@@ -1,0 +1,47 @@
+body{
+    background-color : LIGHTGREY;
+}
+
+h1{
+    color : #17202A;
+}
+
+h3{
+    color : #17202A;
+}
+
+#topleft{
+    position: absolute;
+    visibility: visible;
+    left: 300px;
+    top: 300px;
+    /*z-index: 200;*/
+    height: 180px;  width: 180px;
+}
+
+#topright{
+    position: absolute;
+    visibility: visible;
+    left: 500px;
+    top: 300px;
+    /*z-index: 200;*/
+    height: 180px;  width: 180px;
+}
+
+#bottomleft{
+    position: absolute;
+    visibility: visible;
+    left: 300px;
+    top: 500px;
+    /*z-index: 200;*/
+    height: 180px;  width: 180px;
+}
+
+#bottomright{
+    position: absolute;
+    visibility: visible;
+    left: 500px;
+    top: 500px;
+    /*z-index: 200;*/
+    height: 180px;  width: 180px;
+}

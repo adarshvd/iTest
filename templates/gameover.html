@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+<!--..........................................................-->
+{% block head %}
+<h3> Well Tried..... {{ data.name }}</h3>
+<h3>Your Total score:</h3> <h1 style="color:purple; font-size:80px;">{{ data.score }}</h1> <br>
+{% endblock %}
+<!--..........................................................-->
+{% block body %}
+<hr>
+
+{% if data.score>=50 %}
+      <h1> GOD...? </h1>
+{% elif data.score>=40 %}
+      <h1>Well Played... You have excellent EYES as well as massive BRAINS </h1>
+{% elif data.score>=30 %}
+      <h1>Impressive....  </h1>
+{% elif data.score>=25 %}
+      <h1> Awesome... Play strategically next time</h1>
+{% elif data.score>=20 %}
+      <h1> Good, But you can do better if you try harder </h1>
+{% elif data.score>=15 %}
+      <h1>Your eyes are O K ... </h1>
+{% elif data.score>=10 %}
+      <h1> Didn't expect this from you, POOR eyesight </h1>
+{% elif data.score>=0 %}
+      <h1> Are you even trying?  </h1>
+{% else %}
+      <h1> Seriously?.... What is wrong with you?  </h1>
+{% endif %}
+
+INFO: Try again with the same name ( capital sensitive ) to improve your score.
+
+It will only update if you beat your score, otherwise your old score will remain.
+
+<a style="position: absolute;
+          top: 1100px;" href="/"> <h2 style="color: voilet">TRY AGAIN?</h2> </a>
+
+{% endblock %}
+<!--..........................................................-->

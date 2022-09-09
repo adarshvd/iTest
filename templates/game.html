@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+<!--..........................................................-->
+{% block head %}
+<h3> Welcome {{ session.name }}</h3>
+<h1>score: {{ session.score }}</h1>
+<h2>remaining lives: {{ session.life }} </h2><hr>
+<h2 style="color: darkblue"> Choose the box with different Color</h2>
+{% endblock %}
+<!--..........................................................-->
+{% block body %}
+<a href="/validate/{{1}}"><div id="topleft" class="square" style="  background-color: #{{session.topleftcolor}};"></div></a>
+<a href="/validate/{{2}}"><div id="topright" class="square" style="  background-color: #{{session.toprightcolor}};"></div></a>
+<a href="/validate/{{3}}"><div id="bottomleft" class="square" style="  background-color: #{{session.bottomleftcolor}};"></div></a>
+<a href="/validate/{{4}}"><div id="bottomright" class="square" style="  background-color: #{{session.bottomrightcolor}};"></div></a>
+
+<br><hr><br>
+
+{% if session['bonus']!=0 %}
+{% if session['5050running']==0 %}
+{% if session['5050'] > 0 %}
+<a style="position: absolute;
+          top: 900px;" href="/powerup/{{1}}"> <h1>50 : 50 ( {{session['5050']}} )</h3> </a>
+{% endif %}
+{% endif %}
+
+
+
+{% if session['skip'] > 0 %}
+<a style="position: absolute;
+          top: 800px;" href="/powerup/{{2}}"> <h1>skip ( {{session['skip']}} )</h3> </a>
+{% endif %}
+{% endif %}
+
+
+{% if session['5050running']==0 %}
+{% if session['bonus'] > 0 and session['score']>20 %}
+<a style="position: absolute;
+          top: 1000px;" href="/powerup/{{3}}"> <h1>Activate Bonus ( +{{session['score']-20}}points )</h3> </a>
+{% endif %}
+{% endif %}
+
+
+
+{% if session['bonus'] ==0 %}
+<a style="position: absolute;
+          top: 1000px;" href="/powerup/{{3}}"> <h1>Bonus is activated ... Do your BEST </h3> </a>
+{% endif %}
+
+
+
+<a style="position: absolute;
+          top: 1200px;" href="/validate/{{0}}"> <h1 style="font-size:40px; color:#990000">QUIT</h3> </a>
+
+{% endblock %}
+<!--..........................................................-->
